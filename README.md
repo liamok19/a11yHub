@@ -10,7 +10,15 @@ Hands-on, visual explainers for WCAG 2.2 success criteria. Each criterion gets a
 
 Shared styles are in `css/lab.css` and the Perceivable benches are in `js/perceivable.js`.
 
-Open `index.html` in a browser. No build step.
+## Run locally
+
+No build step. From the repo folder, start any static server, for example:
+
+```sh
+python3 -m http.server 8000
+```
+
+Then open <http://localhost:8000>. You can also open `index.html` directly in a browser.
 
 ## Roadmap
 
