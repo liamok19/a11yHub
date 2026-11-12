@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WCAG Perceivable Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;700&family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/lab.css">
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <p class="eyebrow"><a href="index.html">a11yHub</a> · WCAG 2.2 · Principle 1</p>
+  <h1>Perceivable</h1>
+  <p class="lede">If someone cannot see it, hear it or otherwise take it in, it does not exist for them. This principle has 29 criteria in four guidelines. Every level A and AA criterion below has a bench to try.</p>
+  <nav aria-label="Guidelines on this page">
+    <ul class="jump">
+      <li><a href="#g-1-1"><b>1.1</b>Text alternatives</a></li>
+      <li><a href="#g-1-2"><b>1.2</b>Time-based media</a></li>
+      <li><a href="#g-1-3"><b>1.3</b>Adaptable</a></li>
+      <li><a href="#g-1-4"><b>1.4</b>Distinguishable</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= 1.1 ================= -->
+<div class="guide" id="g-1-1">
+  <p class="eyebrow">Guideline 1.1</p>
+  <h2>Text Alternatives</h2>
+  <p>Anything that is not text needs a text version, so it can be spoken, enlarged or turned into braille.</p>
+</div>
+
+<section class="sc" id="sc-1-1-1" aria-labelledby="h-111">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.1.1</div><div class="sc-meta"><span class="level">Level A</span></div><h3 id="h-111">Non-text Content</h3></div>
+  <p class="rule">Images, icons and other non-text content need a text alternative that does the same job. Pure decoration should be hidden from assistive technology.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · shop with the screen off</p>
+    <div class="row" id="alt-seg" role="group" aria-label="Alt text quality">
+      <button class="btn" type="button" data-v="missing" aria-pressed="true">No alt text</button>
+      <button class="btn" type="button" data-v="file" aria-pressed="false">Filename</button>
+      <button class="btn" type="button" data-v="good" aria-pressed="false">Described</button>
+    </div>
+    <div class="card" id="alt-card" aria-hidden="true">
+      <svg viewBox="0 0 96 96" id="alt-pic"><rect x="24" y="30" width="38" height="44" rx="6" fill="#D9CDB8" stroke="#14172B" stroke-width="3"/><path d="M62 40h8a8 8 0 0 1 0 22h-8" fill="none" stroke="#14172B" stroke-width="3"/><circle cx="34" cy="44" r="1.6" fill="#14172B"/><circle cx="48" cy="58" r="1.6" fill="#14172B"/><circle cx="40" cy="66" r="1.6" fill="#14172B"/><circle cx="52" cy="40" r="1.6" fill="#14172B"/><path d="M36 22c-3-4 3-6 0-10M48 22c-3-4 3-6 0-10" fill="none" stroke="#4B5070" stroke-width="2" stroke-linecap="round"/></svg>
+      <div class="col"><b>Stoneware mug</b><span>$38</span><span class="heart"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.400-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></div>
+    </div>
+    <label class="check" for="alt-off"><input type="checkbox" id="alt-off">Turn the screen off, like a blind shopper</label>
+    <p class="lab">A screen reader announces:</p>
+    <ol class="sr" id="alt-sr" role="status"></ol>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>Blind and low-vision people, and anyone whose images fail to load.</dd></div>
+    <div><dt>Fix</dt><dd>Write <code>alt</code> that says what the image is for. Name icon buttons. Use <code>alt=""</code> for decoration.</dd></div>
+  </dl>
+</section>
+
+<!-- ================= 1.2 ================= -->
+<div class="guide" id="g-1-2">
+  <p class="eyebrow">Guideline 1.2</p>
+  <h2>Time-based Media</h2>
+  <p>Audio and video carry information on two channels. Each channel needs a backup for people who cannot use it.</p>
+</div>
+
+<section class="sc" id="sc-1-2" aria-labelledby="h-12">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.2.1–5</div><div class="sc-meta"><span class="level">Level A and AA</span><span class="also">five criteria, one bench</span></div><h3 id="h-12">Captions, audio description and transcripts</h3></div>
+  <p class="rule">Below is a 15-second kitchen safety video, split into what you see and what you hear. Switch off a sense, then add the alternatives back.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · lose a channel</p>
+    <div class="col">
+      <label class="check" for="m-deaf"><input type="checkbox" id="m-deaf" checked>I cannot hear the audio</label>
+      <label class="check" for="m-blind"><input type="checkbox" id="m-blind">I cannot see the picture</label>
+    </div>
+    <div class="lanes" id="m-lanes" aria-hidden="true"></div>
+    <div class="row" role="group" aria-label="Alternatives">
+      <label class="check" for="m-cap"><input type="checkbox" id="m-cap">Captions</label>
+      <label class="check" for="m-ad"><input type="checkbox" id="m-ad">Audio description</label>
+      <label class="check" for="m-tr"><input type="checkbox" id="m-tr">Transcript</label>
+    </div>
+    <div class="transcript" id="m-transcript" hidden><b>Transcript.</b> A pan of oil bursts into flame on the stove. A smoke alarm beeps. Presenter: “Never use water. Do this instead.” She slides a metal lid over the pan. Text on screen: Turn off the heat. Leave the lid on.</div>
+    <div class="col" role="status">
+      <p class="lab" id="m-score"></p>
+      <div class="verdicts" id="m-facts"></div>
+    </div>
+  </div>
+  <ul class="aaa" aria-label="Criteria in guideline 1.2">
+    <li><b>1.2.1</b><span>Audio-only or video-only recordings need a transcript, or an audio track for silent video.<i>A</i></span></li>
+    <li><b>1.2.2</b><span>Prerecorded video with sound needs captions, including speaker names and meaningful sounds.<i>A</i></span></li>
+    <li><b>1.2.3</b><span>Prerecorded video needs audio description or a full text alternative.<i>A</i></span></li>
+    <li><b>1.2.4</b><span>Live video with sound needs live captions.<i>AA</i></span></li>
+    <li><b>1.2.5</b><span>Prerecorded video needs audio description. The transcript alone no longer counts.<i>AA</i></span></li>
+    <li><b>1.2.6</b><span>Sign language interpretation for prerecorded audio.<i>AAA</i></span></li>
+    <li><b>1.2.7</b><span>Extended audio description that pauses the video when gaps in dialogue are too short.<i>AAA</i></span></li>
+    <li><b>1.2.8</b><span>A full text alternative for all prerecorded video.<i>AAA</i></span></li>
+    <li><b>1.2.9</b><span>A live text alternative for live audio-only content.<i>AAA</i></span></li>
+  </ul>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>Deaf, hard-of-hearing, blind and deafblind people, plus anyone watching on mute on the train.</dd></div>
+    <div><dt>Fix</dt><dd>Caption every video. Script it so the speech names what is shown, or add a description track. Publish the transcript.</dd></div>
+  </dl>
+</section>
+
+<!-- ================= 1.3 ================= -->
+<div class="guide" id="g-1-3">
+  <p class="eyebrow">Guideline 1.3</p>
+  <h2>Adaptable</h2>
+  <p>Content should survive being presented another way: spoken, linearised, rotated or restyled.</p>
+</div>
+
+<section class="sc" id="sc-1-3-1" aria-labelledby="h-131">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.3.1</div><div class="sc-meta"><span class="level">Level A</span></div><h3 id="h-131">Info and Relationships</h3></div>
+  <p class="rule">Structure you can see, such as headings, lists and field labels, has to exist in the code too. Looking like a heading is not enough.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · same look, different code</p>
+    <div class="row" id="st-seg" role="group" aria-label="Markup">
+      <button class="btn" type="button" data-v="fake" aria-pressed="true">Styled divs</button>
+      <button class="btn" type="button" data-v="real" aria-pressed="false">Semantic HTML</button>
+    </div>
+    <p class="lab">What sighted visitors see (identical in both)</p>
+    <div class="mock" aria-hidden="true">
+      <div class="fake-h">Opening hours</div>
+      <div class="fake-li">Weekdays 8 to 6</div><div class="fake-li">Saturday 9 to 4</div><div class="fake-li">Sunday closed</div>
+      <div style="font-weight:600;font-size:14px">Email for updates</div><div class="fake-in">you@example.com</div>
+    </div>
+    <p class="lab">What a screen reader user can navigate by</p>
+    <ol class="sr" id="st-sr" role="status"></ol>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>Screen reader users, who jump between headings, lists and fields the way sighted people skim.</dd></div>
+    <div><dt>Fix</dt><dd>Use <code>&lt;h2&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;label for&gt;</code> and <code>&lt;th&gt;</code>. Style them however you like afterwards.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-3-2" aria-labelledby="h-132">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.3.2</div><div class="sc-meta"><span class="level">Level A</span></div><h3 id="h-132">Meaningful Sequence</h3></div>
+  <p class="rule">When order matters, the order in the code has to match the order on screen. Assistive technology reads the code.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · listen in code order</p>
+    <div class="row" id="sq-seg" role="group" aria-label="Build">
+      <button class="btn" type="button" data-v="broken" aria-pressed="true">CSS-reordered</button>
+      <button class="btn" type="button" data-v="fixed" aria-pressed="false">Code matches screen</button>
+    </div>
+    <div class="steps" id="sq-steps" aria-hidden="true">
+      <div class="step">1. Boil the kettle</div><div class="step">2. Add the tea bag</div>
+      <div class="step">3. Pour the water</div><div class="step">4. Wait three minutes</div>
+    </div>
+    <div class="row"><button class="btn" type="button" id="sq-play">Read it aloud</button></div>
+    <p class="status" id="sq-out" role="status">On screen the recipe reads 1, 2, 3, 4. Press Read it aloud to hear the order in the code.</p>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>Screen reader and keyboard users, and people who turn off styles or use reader mode.</dd></div>
+    <div><dt>Fix</dt><dd>Write the HTML in reading order first. Be careful with CSS <code>order</code>, absolute positioning and layout tables.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-3-3" aria-labelledby="h-133">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.3.3</div><div class="sc-meta"><span class="level">Level A</span></div><h3 id="h-133">Sensory Characteristics</h3></div>
+  <p class="rule">Instructions cannot rely only on shape, colour, size, position or sound. “The round button on the right” means nothing to someone who cannot see the layout.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · follow the instruction</p>
+    <div class="row" id="se-seg" role="group" aria-label="Instruction wording">
+      <button class="btn" type="button" data-v="vague" aria-pressed="true">By look and place</button>
+      <button class="btn" type="button" data-v="named" aria-pressed="false">By name</button>
+    </div>
+    <p class="status" id="se-instr"></p>
+    <div class="mock" aria-hidden="true">
+      <div class="sense" id="se-visual"><span>Back</span><span>Help</span><span class="go">Next</span></div>
+      <ol class="sr" id="se-linear" hidden><li>Back, button</li><li>Help, button</li><li>Next, button</li></ol>
+    </div>
+    <div class="col">
+      <label class="check" for="se-grey"><input type="checkbox" id="se-grey">Take away colour</label>
+      <label class="check" for="se-lin"><input type="checkbox" id="se-lin">Take away layout (screen reader view)</label>
+    </div>
+    <p class="lab" id="se-result" role="status"></p>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>Blind and colour-blind people, and anyone whose screen lays things out differently from yours.</dd></div>
+    <div><dt>Fix</dt><dd>Refer to controls by their label first. Add the visual cue as a bonus, never as the only clue.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-3-4" aria-labelledby="h-134">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.3.4</div><div class="sc-meta"><span class="level">Level AA</span></div><h3 id="h-134">Orientation</h3></div>
+  <p class="rule">Content must work in both portrait and landscape, unless one orientation is essential, as it is for a piano app.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · the phone is fixed to a wheelchair mount</p>
+    <div class="row" id="or-seg" role="group" aria-label="App build">
+      <button class="btn" type="button" data-v="locked" aria-pressed="true">Locked to portrait</button>
+      <button class="btn" type="button" data-v="free" aria-pressed="false">Supports both</button>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="phone locked" id="or-phone"><div class="screen"><div class="bar">Boarding pass</div><div class="code"></div><div><b>NZ 105</b><br>Gate 12 · Seat 14C</div></div></div>
+    </div>
+    <div class="row"><button class="btn" type="button" id="or-rot">Rotate the phone</button></div>
+    <p class="status" id="or-out" role="status">The phone is upright. Rotate it to landscape, the way it sits on a mount.</p>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>People whose device is mounted in one position, and people who need landscape for larger text.</dd></div>
+    <div><dt>Fix</dt><dd>Do not lock orientation in the app manifest or with CSS. Let the layout respond.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-3-5" aria-labelledby="h-135">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.3.5</div><div class="sc-meta"><span class="level">Level AA</span></div><h3 id="h-135">Identify Input Purpose</h3></div>
+  <p class="rule">Fields that ask for personal details must say what they are in code, so browsers and assistive tools can fill them in.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · fill in the form</p>
+    <div class="row" id="ip-seg" role="group" aria-label="Form build">
+      <button class="btn" type="button" data-v="none" aria-pressed="true">No purpose set</button>
+      <button class="btn" type="button" data-v="auto" aria-pressed="false">With autocomplete</button>
+    </div>
+    <div class="mock" id="ip-form" aria-hidden="true"></div>
+    <div class="row"><button class="btn" type="button" id="ip-fill">Use my saved details</button><button class="btn" type="button" id="ip-clear">Clear</button></div>
+    <p class="status" id="ip-out" role="status">Press Use my saved details and see what the browser can do.</p>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>People with memory, dexterity or reading difficulties, for whom typing an address is slow or error-prone.</dd></div>
+    <div><dt>Fix</dt><dd>Add the standard tokens: <code>autocomplete="name"</code>, <code>"email"</code>, <code>"tel"</code>, <code>"postal-code"</code>.</dd></div>
+  </dl>
+</section>
+
+<ul class="aaa" aria-label="Level AAA in guideline 1.3">
+  <li><b>1.3.6</b><span>Identify Purpose: icons, regions and controls expose their purpose in code so tools can swap in familiar symbols.<i>AAA</i></span></li>
+</ul>
+
+<!-- ================= 1.4 ================= -->
+<div class="guide" id="g-1-4">
+  <p class="eyebrow">Guideline 1.4</p>
+  <h2>Distinguishable</h2>
+  <p>Make it easy to separate foreground from background, in sight and in sound.</p>
+</div>
+
+<section class="sc" id="sc-1-4-1" aria-labelledby="h-141">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.4.1</div><div class="sc-meta"><span class="level">Level A</span></div><h3 id="h-141">Use of Color</h3></div>
+  <p class="rule">Colour cannot be the only way to show meaning. Pair it with text, an icon or a pattern.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · which items are sold out?</p>
+    <div class="mock" id="co-mock" aria-hidden="true"><div class="stock" id="co-list"></div></div>
+    <div class="col">
+      <label class="check" for="co-grey"><input type="checkbox" id="co-grey">View without colour</label>
+      <label class="check" for="co-fix"><input type="checkbox" id="co-fix">Add an icon and a word</label>
+    </div>
+    <p class="lab" id="co-out" role="status"></p>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>About 1 in 12 men and 1 in 200 women have a colour vision deficiency. Also anyone printing in black and white.</dd></div>
+    <div><dt>Fix</dt><dd>Add a label or icon to status colours. Underline links in body text. Mark form errors with text.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-4-2" aria-labelledby="h-142">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.4.2</div><div class="sc-meta"><span class="level">Level A</span></div><h3 id="h-142">Audio Control</h3></div>
+  <p class="rule">If sound plays by itself for more than 3 seconds, there must be a way to pause it, stop it or turn it down on the page.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · a screen reader against autoplay music</p>
+    <div class="row" id="au-seg" role="group" aria-label="Page build">
+      <button class="btn" type="button" data-v="broken" aria-pressed="true">No control</button>
+      <button class="btn" type="button" data-v="fixed" aria-pressed="false">Pause at the top</button>
+    </div>
+    <div class="mock" id="au-mock">
+      <div class="row" style="justify-content:space-between"><div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><button class="btn" type="button" id="au-pause" hidden>Pause music</button></div>
+      <p class="speech" aria-hidden="true">“Sign in, heading level 1. Email, edit text. Password, edit text.”</p>
+    </div>
+    <div class="row"><button class="btn" type="button" id="au-load">Load the page</button></div>
+    <p class="status" id="au-out" role="status">This demo makes no sound. The bars stand in for music that starts by itself.</p>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>Screen reader users, who cannot hear their software over the music, and people who are easily distracted.</dd></div>
+    <div><dt>Fix</dt><dd>Do not autoplay sound. If you must, put a pause control first on the page.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-4-3" aria-labelledby="h-143">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.4.3</div><div class="sc-meta"><span class="level">Level AA</span></div><h3 id="h-143">Contrast (Minimum)</h3></div>
+  <p class="rule">Text needs a contrast ratio of at least <strong>4.5:1</strong> against its background. Large text, 24px or 18.66px bold and up, needs <strong>3:1</strong>.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · fade the text until it fails</p>
+    <div class="paper sample" id="c-sample">
+      <p class="big">Large heading at 24px</p>
+      <p class="small">Body text at 16px. Drag the fade slider and watch how early this line becomes hard work.</p>
+    </div>
+    <div class="ratio"><output id="c-ratio" for="c-fade c-fg c-bg">2.4:1</output><span class="hint">from 1:1 (invisible) to 21:1 (black on white)</span></div>
+    <div class="meter" aria-hidden="true">
+      <div class="track"></div><div class="mark" id="c-mark"></div>
+      <span class="tick" style="left:36.1%">3:1</span><span class="tick" style="left:49.4%">4.5:1</span><span class="tick" style="left:63.9%">7:1</span>
+    </div>
+    <div class="verdicts" role="status">
+      <span>Body text, AA (4.5:1)</span><span class="chip" id="c-v1"></span>
+      <span>Large text, AA (3:1)</span><span class="chip" id="c-v2"></span>
+      <span>Body text, AAA (7:1, criterion 1.4.6)</span><span class="chip" id="c-v3"></span>
+    </div>
+    <div class="field"><label for="c-fade">Fade text toward the background</label><input type="range" id="c-fade" min="0" max="95" value="60"></div>
+    <div class="row">
+      <div class="field"><label for="c-fg">Text colour</label><input type="color" id="c-fg" value="#1b1f3b"></div>
+      <div class="field"><label for="c-bg">Background colour</label><input type="color" id="c-bg" value="#ffffff"></div>
+    </div>
+    <div class="row" role="group" aria-label="Familiar mistakes">
+      <button class="btn" type="button" data-fg="#9aa0a6" data-bg="#ffffff">Placeholder grey</button>
+      <button class="btn" type="button" data-fg="#ffffff" data-bg="#ffc400">White on yellow</button>
+      <button class="btn" type="button" data-fg="#6b7280" data-bg="#111827">Dim dark mode</button>
+    </div>
+    <label class="check" for="c-glare"><input type="checkbox" id="c-glare">Simulate sun glare on the screen</label>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>People with low vision or colour vision deficiency, and anyone reading a phone outdoors.</dd></div>
+    <div><dt>Fix</dt><dd>Darken the text until the ratio reads 4.5:1 or more. Logos and disabled controls are exempt.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-4-4" aria-labelledby="h-144">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.4.4</div><div class="sc-meta"><span class="level">Level AA</span></div><h3 id="h-144">Resize Text</h3></div>
+  <p class="rule">People must be able to enlarge text to 200% without losing content or function.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · turn the text size up</p>
+    <div class="row" id="rz-seg" role="group" aria-label="Build">
+      <button class="btn" type="button" data-v="broken" aria-pressed="true">Fixed pixel boxes</button>
+      <button class="btn" type="button" data-v="fixed" aria-pressed="false">Flexible boxes</button>
+    </div>
+    <div class="paper rz broken" id="rz-box" aria-hidden="true"><b>Your booking</b><span>Flight NZ 105 to Sydney leaves at 7:45 am from gate 12.</span><span class="tag">Change seat</span></div>
+    <div class="field"><label for="rz-size">Text size: <span id="rz-v">100</span>%</label><input type="range" id="rz-size" min="100" max="200" step="10" value="100"></div>
+    <div class="row" role="status"><span class="chip" id="rz-chip"></span><span class="hint" id="rz-out"></span></div>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>People with low vision who do not use a magnifier, including many older readers.</dd></div>
+    <div><dt>Fix</dt><dd>Size text in <code>rem</code>, let containers grow, and never set a fixed height on something that holds text.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-4-5" aria-labelledby="h-145">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.4.5</div><div class="sc-meta"><span class="level">Level AA</span></div><h3 id="h-145">Images of Text</h3></div>
+  <p class="rule">Use real text, not a picture of text, unless the exact look is essential, as with a logo.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · zoom in on a banner</p>
+    <p class="lab">Text saved as an image</p>
+    <div class="paper scroller" aria-hidden="true"><canvas id="it-canvas" width="250" height="34"></canvas></div>
+    <p class="lab">Real text</p>
+    <div class="paper scroller" aria-hidden="true"><span class="realtext" id="it-real">Summer sale: 20% off everything</span></div>
+    <div class="field"><label for="it-zoom">Zoom: <span id="it-v">100</span>%</label><input type="range" id="it-zoom" min="100" max="400" step="25" value="200"></div>
+    <label class="check" for="it-hc"><input type="checkbox" id="it-hc">Switch to my high-contrast colours</label>
+    <p class="hint">The image blurs as it grows and ignores colour preferences. The real text stays sharp and adapts.</p>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>People who zoom, change fonts or colours, or use a screen reader or translation tool.</dd></div>
+    <div><dt>Fix</dt><dd>Set headlines and banners as HTML text styled with CSS. Keep images of text for logos.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-4-10" aria-labelledby="h-1410">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.4.10</div><div class="sc-meta"><span class="level">Level AA</span></div><h3 id="h-1410">Reflow</h3></div>
+  <p class="rule">At 320 CSS pixels wide, which is a desktop page zoomed to 400%, content must fit without scrolling in two directions.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · zoom a desktop page to 400%</p>
+    <div class="row" id="rf-seg" role="group" aria-label="Layout">
+      <button class="btn" type="button" data-v="broken" aria-pressed="true">Fixed-width layout</button>
+      <button class="btn" type="button" data-v="fixed" aria-pressed="false">Responsive layout</button>
+    </div>
+    <div class="paper rf" id="rf-frame" tabindex="0" role="group" aria-label="Simulated browser window, scrollable">
+      <div class="rf-page broken" id="rf-page"><div class="rf-side"><b>Menu</b><br>Home<br>Fares<br>Help</div><div class="rf-main"><b>Timetable changes</b><p>From Monday the 8:10 service to the city leaves five minutes earlier and no longer stops at Harbour Road. Check your connection before you travel.</p></div></div>
+    </div>
+    <div class="field"><label for="rf-zoom">Browser zoom: <span id="rf-v">100</span>%</label><input type="range" id="rf-zoom" min="100" max="400" step="50" value="100"></div>
+    <div class="row" role="status"><span class="chip" id="rf-chip"></span><span class="hint" id="rf-out"></span></div>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>People with low vision who zoom heavily. Scrolling sideways on every line makes reading exhausting.</dd></div>
+    <div><dt>Fix</dt><dd>Use flexible grids, <code>max-width</code> and media queries. Tables, maps and diagrams are exempt.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-4-11" aria-labelledby="h-1411">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.4.11</div><div class="sc-meta"><span class="level">Level AA</span></div><h3 id="h-1411">Non-text Contrast</h3></div>
+  <p class="rule">The parts of controls and graphics you need to see, such as input borders, icons and chart lines, need <strong>3:1</strong> contrast against what is next to them.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · find the form field</p>
+    <div class="paper ntc" id="nt-mock" aria-hidden="true">
+      <span class="inp">Search</span><span class="box"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.500 15.500 21 21"/></svg>
+    </div>
+    <div class="field"><label for="nt-str">Border and icon strength</label><input type="range" id="nt-str" min="0" max="100" value="12"></div>
+    <div class="row" role="status"><span class="ratio"><output id="nt-ratio" for="nt-str">1.2:1</output></span><span class="chip" id="nt-chip"></span></div>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>People with low vision, who otherwise cannot tell where a field is or what state a toggle is in.</dd></div>
+    <div><dt>Fix</dt><dd>Give borders, icons, focus rings and chart marks a colour of at least 3:1. On white, <code>#949494</code> just passes.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-4-12" aria-labelledby="h-1412">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.4.12</div><div class="sc-meta"><span class="level">Level AA</span></div><h3 id="h-1412">Text Spacing</h3></div>
+  <p class="rule">Nothing may break when a reader sets line height to 1.5, paragraph spacing to 2, letter spacing to 0.12 and word spacing to 0.16 times the font size.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · apply a reader’s spacing</p>
+    <div class="row" id="sp-seg" role="group" aria-label="Build">
+      <button class="btn" type="button" data-v="broken" aria-pressed="true">Fixed-height card</button>
+      <button class="btn" type="button" data-v="fixed" aria-pressed="false">Card that grows</button>
+    </div>
+    <div class="paper sp broken" id="sp-box" aria-hidden="true"><p>Your parcel is out for delivery and should arrive before noon.</p><p>Someone must be home to sign for it. Reply HOLD to collect it instead.</p></div>
+    <label class="check" for="sp-on"><input type="checkbox" id="sp-on">Apply the reader’s text spacing</label>
+    <div class="row" role="status"><span class="chip" id="sp-chip"></span><span class="hint" id="sp-out"></span></div>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>People with dyslexia or low vision, many of whom read far better with looser text.</dd></div>
+    <div><dt>Fix</dt><dd>Let text containers grow. Avoid fixed heights and <code>overflow: hidden</code> around copy.</dd></div>
+  </dl>
+</section>
+
+<section class="sc" id="sc-1-4-13" aria-labelledby="h-1413">
+  <div class="sc-head"><div class="sc-num" aria-hidden="true">1.4.13</div><div class="sc-meta"><span class="level">Level AA</span></div><h3 id="h-1413">Content on Hover or Focus</h3></div>
+  <p class="rule">Tooltips and popovers that appear on hover or focus must be dismissible, hoverable and persistent.</p>
+  <div class="bench">
+    <p class="bench-title">Bench · read the password rules</p>
+    <div class="row" id="tt-seg" role="group" aria-label="Tooltip build">
+      <button class="btn" type="button" data-v="broken" aria-pressed="true">Flaky tooltip</button>
+      <button class="btn" type="button" data-v="fixed" aria-pressed="false">Well-behaved tooltip</button>
+    </div>
+    <div class="mock tt-wrap">
+      <div class="row"><span class="lab">Password</span><button class="btn" type="button" id="tt-btn" aria-expanded="false" aria-controls="tt-tip">Rules</button></div>
+      <div class="tt" id="tt-tip" hidden><span>At least 12 characters, one number, and no part of your name or email address.</span><button type="button" id="tt-close">Close</button></div>
+      <div class="fake-in">Confirm password</div>
+      <div class="fake-in">Create account</div>
+    </div>
+    <div class="verdicts" role="status">
+      <span>Dismissible: you can close it without moving away</span><span class="chip" id="tt-c1"></span>
+      <span>Hoverable: the pointer can move onto it</span><span class="chip" id="tt-c2"></span>
+      <span>Persistent: it stays until you are done</span><span class="chip" id="tt-c3"></span>
+    </div>
+    <p class="hint" id="tt-out">Press Rules. The flaky tooltip covers the fields below and vanishes before you can finish reading.</p>
+  </div>
+  <dl class="facts">
+    <div><dt>Who it helps</dt><dd>People using screen magnifiers, who must move the pointer across the tooltip to read it, and slower readers.</dd></div>
+    <div><dt>Fix</dt><dd>Close on Esc, keep it open while the pointer is over it, and never hide it on a timer.</dd></div>
+  </dl>
+</section>
+
+<ul class="aaa" aria-label="Level AAA in guideline 1.4">
+  <li><b>1.4.6</b><span>Contrast (Enhanced): 7:1 for body text and 4.5:1 for large text.<i>AAA</i></span></li>
+  <li><b>1.4.7</b><span>Low or No Background Audio: speech recordings have background sound at least 20 dB quieter, or none.<i>AAA</i></span></li>
+  <li><b>1.4.8</b><span>Visual Presentation: readers can pick colours, lines stay under 80 characters, no justified text, generous spacing.<i>AAA</i></span></li>
+  <li><b>1.4.9</b><span>Images of Text (No Exception): only for pure decoration or where essential.<i>AAA</i></span></li>
+</ul>
+
+<footer>
+  <p>Wording here is plain-language paraphrase. For the normative text and exceptions, read each criterion in the <a href="https://www.w3.org/TR/WCAG22/#perceivable">WCAG 2.2 specification</a>. <a href="index.html">Back to all principles</a>.</p>
+</footer>
+</main>
+<script src="js/perceivable.js"></script>
+</body>
+</html>
